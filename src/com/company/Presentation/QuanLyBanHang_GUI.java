@@ -5,6 +5,8 @@ import com.company.BusinessLogicLayer.QuanLyThongTin;
 import com.company.BusinessLogicLayer.TimKiemHoaDon;
 import com.company.DataAccessLayer.HoaDonBanHang_DAL;
 import com.company.Entities.HoaDonBanHang;
+import com.company.Entities.MuaHang;
+import com.company.Entities.SanPham;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,16 +19,14 @@ public class QuanLyBanHang_GUI {
         System.out.println("|                QUẢN LÝ HÓA ĐƠN BÁN HÀNG            |");
         System.out.println("+----------------------------------------------------+");
         System.out.println("|               1.Nhập thông tin hóa đơn bán         |");
-        System.out.println("|               2.Cập nhật thông tin hóa đơn bán     |");
+        System.out.println("|               2.In hóa đơn                         |");
         System.out.println("|               3.Xóa thông tin hóa đơn bán          |");
         System.out.println("|               4.Hiển thị thông hóa đơn bán         |");
-        System.out.println("|               5.Tìm thông tin hóa đơn bán          |");
-        System.out.println("|               6.In hóa đơn bán                     |");
         System.out.println("|               0.Thoát                              |");
         System.out.println(".----------------------------------------------------.");
     }
     static Scanner scanner = new Scanner(System.in);
-    public static void chon(ArrayList<HoaDonBanHang> hoaDonBanHangArrayList) throws IOException {
+    public static void chon(ArrayList<HoaDonBanHang> hoaDonBanHangArrayList, ArrayList<MuaHang>muaHangs, ArrayList<SanPham>sanPhams) throws IOException {
         int chon;
         while(true){
             Menu();
@@ -34,12 +34,11 @@ public class QuanLyBanHang_GUI {
             if(chon ==0)break;
             switch (chon){
                 case 1:
-                    QuanLyBanHang.nhapThongTin(hoaDonBanHangArrayList);
+                    QuanLyBanHang.nhapThongTin(hoaDonBanHangArrayList,muaHangs,sanPhams);
                     HoaDonBanHang_DAL.GhiFile(hoaDonBanHangArrayList);
                     break;
                 case 2:
-                    QuanLyBanHang.capNhat(hoaDonBanHangArrayList);
-                    HoaDonBanHang_DAL.GhiFile(hoaDonBanHangArrayList);
+                    QuanLyBanHang.inHoaDon(hoaDonBanHangArrayList, muaHangs, sanPhams);
                     break;
                 case 3:
                     QuanLyBanHang.xoa(hoaDonBanHangArrayList);
@@ -47,12 +46,6 @@ public class QuanLyBanHang_GUI {
                     break;
                 case 4:
                     QuanLyBanHang.hienHoaDonBanHang(hoaDonBanHangArrayList);
-                    break;
-                case 5:
-                    TimKiemHoaDon.timHoaDonBan(hoaDonBanHangArrayList);
-                    break;
-                case 6:
-                    QuanLyBanHang.inHoaDon(hoaDonBanHangArrayList);
                     break;
                 default:break;
             }

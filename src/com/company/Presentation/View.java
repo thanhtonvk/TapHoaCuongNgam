@@ -4,10 +4,7 @@ import com.company.DataAccessLayer.HoaDonBanHang_DAL;
 import com.company.DataAccessLayer.HoaDonNhapHang_DAL;
 import com.company.DataAccessLayer.NhanVien_DAL;
 import com.company.DataAccessLayer.SanPham_DAL;
-import com.company.Entities.HoaDonBanHang;
-import com.company.Entities.HoaDonNhapHang;
-import com.company.Entities.NhanVien;
-import com.company.Entities.SanPham;
+import com.company.Entities.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,13 +23,14 @@ public class View {
         System.out.println(".----------------------------------------------------.");
     }
 
-    static ArrayList<HoaDonBanHang> hoaDonBanHangArrayList = new ArrayList<>();
-    static ArrayList<HoaDonNhapHang> hoaDonNhapHangArrayList = new ArrayList<>();
-    static ArrayList<NhanVien> nhanVienArrayList = new ArrayList<>();
-    static ArrayList<SanPham> sanPhamArrayList = new ArrayList<>();
-    static Scanner scanner = new Scanner(System.in);
 
     public static void Run() throws IOException {
+        ArrayList<HoaDonBanHang> hoaDonBanHangArrayList = new ArrayList<>();
+        ArrayList<HoaDonNhapHang> hoaDonNhapHangArrayList = new ArrayList<>();
+        ArrayList<NhanVien> nhanVienArrayList = new ArrayList<>();
+        ArrayList<SanPham> sanPhamArrayList = new ArrayList<>();
+        ArrayList<MuaHang> muaHangs = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
         HoaDonBanHang_DAL.DocFile(hoaDonBanHangArrayList);
         HoaDonNhapHang_DAL.DocFile(hoaDonNhapHangArrayList);
         NhanVien_DAL.DocFile(nhanVienArrayList);
@@ -44,7 +42,7 @@ public class View {
             if (chon == 0) break;
             switch (chon) {
                 case 1:
-                    QuanLyBanHang_GUI.chon(hoaDonBanHangArrayList);
+                    QuanLyBanHang_GUI.chon(hoaDonBanHangArrayList, muaHangs, sanPhamArrayList);
                     break;
                 case 2:
                     QuanLyNhapHang_GUI.chon(hoaDonNhapHangArrayList);
@@ -55,7 +53,8 @@ public class View {
                 case 4:
                     QuanLyNhanVien_GUI.chon(nhanVienArrayList);
                     break;
-                default:break;
+                default:
+                    break;
             }
         }
     }

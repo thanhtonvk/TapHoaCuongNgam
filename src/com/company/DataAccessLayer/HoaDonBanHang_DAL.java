@@ -16,11 +16,8 @@ public class HoaDonBanHang_DAL {
                 String mahoadon = line.split("#")[0];
                 String makhachhang = line.split("#")[1];
                 String ngayban = line.split("#")[2];
-                String tenmathang = line.split("#")[3];
-                double giaban = Double.parseDouble(line.split("#")[4]);
-                int soluong = Integer.parseInt(line.split("#")[5]);
 
-                hoaDonBanHangArrayList.add(new HoaDonBanHang(mahoadon,makhachhang,ngayban,tenmathang,giaban,soluong));
+                hoaDonBanHangArrayList.add(new HoaDonBanHang(mahoadon,makhachhang,ngayban));
             }
             fileReader.close();
             bufferedReader.close();

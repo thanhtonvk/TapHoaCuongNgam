@@ -11,7 +11,4 @@ public class TimKiemHoaDon {
     public static  void timHoaDonNhap(ArrayList<HoaDonNhapHang>hoaDonNhapHangArrayList){
         QuanLyNhapHang.inHoaDon(hoaDonNhapHangArrayList);
     }
-    public static void timHoaDonBan(ArrayList<HoaDonBanHang>hoaDonBanHangArrayList){
-        QuanLyBanHang.inHoaDon(hoaDonBanHangArrayList);
-    }
 }

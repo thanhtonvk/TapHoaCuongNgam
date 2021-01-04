@@ -1,22 +1,17 @@
 package com.company.Entities;
 
 public class HoaDonBanHang {
-    private String mahoadonban,makhachhang,ngayban,tenmathang;
-    private double giaban;
-    private int soluong;
-
-    public HoaDonBanHang(String mahoadonban, String makhachhang, String ngayban, String tenmathang, double giaban, int soluong) {
+    private String mahoadonban,makhachhang,ngayban;
+    public HoaDonBanHang(String mahoadonban, String makhachhang, String ngayban) {
         this.mahoadonban = mahoadonban;
         this.makhachhang = makhachhang;
         this.ngayban = ngayban;
-        this.tenmathang = tenmathang;
-        this.giaban = giaban;
-        this.soluong = soluong;
+
     }
 
     @Override
     public String toString(){
-        return  mahoadonban+"#"+makhachhang+"#"+ngayban+"#"+tenmathang+"#"+giaban+"#"+soluong;
+        return  mahoadonban+"#"+makhachhang+"#"+ngayban;
     }
     public String getMahoadonban() {
         return mahoadonban;
@@ -42,27 +37,5 @@ public class HoaDonBanHang {
         this.ngayban = ngayban;
     }
 
-    public String getTenmathang() {
-        return tenmathang;
-    }
 
-    public void setTenmathang(String tenmathang) {
-        this.tenmathang = tenmathang;
-    }
-
-    public double getGiaban() {
-        return giaban;
-    }
-
-    public void setGiaban(double giaban) {
-        this.giaban = giaban;
-    }
-
-    public int getSoluong() {
-        return soluong;
-    }
-
-    public void setSoluong(int soluong) {
-        this.soluong = soluong;
-    }
 }
